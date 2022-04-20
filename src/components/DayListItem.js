@@ -1,3 +1,5 @@
+// The DayList Item is responsible for displaying the name and spots remaining
+// for a single day.
 import React from "react";
 
 import 'components/DayListItem.scss';
