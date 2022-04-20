@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "components/Application.scss";
 import DayList from "./DayList";
+import InterviewerList from "./InterviewerList";
 
 const days = [
   {
@@ -21,8 +22,11 @@ const days = [
   },
 ];
 
+
+
 export default function Application(props) {
   const [day, setDay] = useState('Monday');
+  const [interviewer, setInterviewer] = useState(1);
 
   return (
     <main className="layout">
@@ -35,8 +39,12 @@ export default function Application(props) {
         <hr className="sidebar__separator sidebar--centered" />
         <DayList
           days={days}
-          day={day}
-          setDay={setDay}
+          value={day}
+          onChange={setDay}
+        />
+        <InterviewerList
+          interviewer={interviewer}
+          setInterviewer={setInterviewer}
         />
         <nav className="sidebar__menu"></nav>
         <img
