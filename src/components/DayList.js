@@ -7,7 +7,7 @@ export default function DayList(props) {
   const populateDayList = props.days.map(
     day => {
       return <DayListItem
-        id={day.id}
+        key={day.id}
         name={day.name}
         spots={day.spots}
       />
