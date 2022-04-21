@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'components/Button';
 
+// Confirm allows a user to confirm a destructive action
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--confirm">

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Empty allows a user to choose which time slot to book
 export default function Empty(props) {
   return (
     <main 
