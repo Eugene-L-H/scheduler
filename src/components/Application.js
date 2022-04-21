@@ -42,10 +42,6 @@ export default function Application(props) {
           value={day}
           onChange={setDay}
         />
-        <InterviewerList
-          interviewer={interviewer}
-          setInterviewer={setInterviewer}
-        />
         <nav className="sidebar__menu"></nav>
         <img
           className="sidebar__lhl sidebar--centered"
