@@ -52,7 +52,7 @@ export default function Application(props) {
 
   useEffect(() => {
     axios.get('http://localhost:8001/api/days')
-      .then(setDays((response) => response));
+      .then(response => setDays(Object.values(response.data)));
   },[]);
 
   const appointmentsArr = Object.values(appointments).map((appointment) => {
