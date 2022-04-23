@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
@@ -14,7 +14,7 @@ export default function useVisualMode(initial) {
     // Remove current mode setting, set mode to last item in history array
     history.pop();
     setMode(history[history.length - 1]);
-  }
+  };
 
-  return { mode, transition, back }
-};
+  return { mode, transition, back };
+}
