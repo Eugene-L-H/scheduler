@@ -23,7 +23,6 @@ export function getInterview(state, interview) {
   interviewObj['student'] = interview.student;
   interviewObj['interviewer'] = state.interviewers[interviewerId];
   
-  console.log(interviewObj);
   return interviewObj;
 }
 
