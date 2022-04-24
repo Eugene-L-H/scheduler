@@ -4,7 +4,7 @@ export function getAppointmentsForDay(state, day) {
     if (stateDay.name === day) {
       let appointmentIds = stateDay.appointments;
 
-      for(let id of appointmentIds) {
+      for (let id of appointmentIds) {
         appointmentObjs.push(state.appointments[id]);
       }
     }
@@ -12,17 +12,32 @@ export function getAppointmentsForDay(state, day) {
   return appointmentObjs;
 }
 
-export function getInterview(state, interview) {
+export function getInterview(state, interviewId) {
   const interviewObj = {};
 
   // Return null if no interview booked for that time.
-  if (interview === null) return null;
+  if (interviewId === null) return null;
 
-  const interviewerId = interview.interviewer;
+  const interviewerId = interviewId.interviewer;
 
-  interviewObj['student'] = interview.student;
+  interviewObj['student'] = interviewId.student;
   interviewObj['interviewer'] = state.interviewers[interviewerId];
-  
+
   return interviewObj;
 }
 
+export function getInterviewersForDay(state, day) {
+  let interviewerObjs = [];
+  const appointmentsObjs = getAppointmentsForDay(state, day);
+
+  appointmentsObjs.map((appointment) => {
+    if (appointment.interview !== null) {
+      let x = state.interviewers[appointment.interview.interviewer];
+      interviewerObjs.push(
+        state.interviewers[appointment.interview.interviewer]
+      );
+    }
+  });
+
+  return interviewerObjs;
+}

@@ -26,11 +26,10 @@ export default function Form(props) {
             type="text"
             placeholder="Enter Student Name"
             value={student}
-            onChange={event => setStudent(event.target.value)}
-
+            onChange={(event) => setStudent(event.target.value)}
           />
         </form>
-        <InterviewerList 
+        <InterviewerList
           interviewers={props.interviewers}
           value={interviewer}
           onChange={setInterviewer}
@@ -38,8 +37,12 @@ export default function Form(props) {
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={() => props.back()}>Cancel</Button>
-          <Button confirm onClick={props.onSave}>Save</Button>
+          <Button danger onClick={() => props.back()}>
+            Cancel
+          </Button>
+          <Button confirm onClick={props.onSave}>
+            Save
+          </Button>
         </section>
       </section>
     </main>
