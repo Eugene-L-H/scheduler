@@ -57,19 +57,21 @@ export default function Application(props) {
   }, []);
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const dailyInterviewers = getInterviewersForDay(state, state.day);
+  console.log('DailyAppts: ', dailyAppointments);
+  console.log('DailyInterviewers: ', dailyInterviewers);
 
   const AppointmentsArr = dailyAppointments.map((appointment) => {
-    // const interview = getInterview(state, appointment.interview);
-    // if (appointment.interview) {
-    //   return <Appointment key={appointment.id} {...appointment} />;
-    // }
+    const interview = getInterview(state, appointment.interview);
+
     console.log('APPT: ', appointment);
     return (
       <Appointment
         key={appointment.id}
-        {...appointment}
-        interview={getInterview(state, appointment.interview)}
-        interviewers={getInterviewersForDay(state, state.day)}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+        interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         save={save}
         back={() => 'back'}
