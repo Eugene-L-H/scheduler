@@ -32,7 +32,6 @@ export function getInterviewersForDay(state, day) {
 
   appointmentsObjs.map((appointment) => {
     if (appointment.interview !== null) {
-      let x = state.interviewers[appointment.interview.interviewer];
       interviewerObjs.push(
         state.interviewers[appointment.interview.interviewer]
       );

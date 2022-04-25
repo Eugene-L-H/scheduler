@@ -5,51 +5,74 @@ import 'components/Application.scss';
 import DayList from './DayList';
 // import InterviewerList from './InterviewerList';
 import Appointment from './Appointment';
-import { getAppointmentsForDay, getInterview } from 'helpers/selectors';
+import {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewersForDay,
+} from 'helpers/selectors';
 
 export default function Application(props) {
-  const [state, setState] = useState ({
+  const [state, setState] = useState({
     day: 'Monday',
     days: [],
     appointments: {},
-    interviewers: {}
+    interviewers: {},
   });
 
-  
-  const setDay = day => setState({ ...state, day });
-  
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview },
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+    setState({ ...state, appointments });
+  }
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer,
+    };
+  }
+
+  const setDay = (day) => setState({ ...state, day });
+
   useEffect(() => {
     Promise.all([
       axios.get('api/days'),
       axios.get('api/appointments'),
-      axios.get('api/interviewers')
+      axios.get('api/interviewers'),
     ]).then((all) => {
-      setState(prev => ({
-        ...prev, days: Object.values(all[0].data),
+      setState((prev) => ({
+        ...prev,
+        days: Object.values(all[0].data),
         appointments: all[1].data,
-        interviewers: all[2].data
-      }))
+        interviewers: all[2].data,
+      }));
     });
   }, []);
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
   const AppointmentsArr = dailyAppointments.map((appointment) => {
-    const interview = getInterview(state, appointment.interview);
-
-    if (appointment.interview){
-      return (
-        <Appointment 
-          key={appointment.id} 
-          {...appointment}/>
-      );
-    }
-
+    // const interview = getInterview(state, appointment.interview);
+    // if (appointment.interview) {
+    //   return <Appointment key={appointment.id} {...appointment} />;
+    // }
+    console.log('APPT: ', appointment);
     return (
-      <Appointment 
+      <Appointment
         key={appointment.id}
-        id={appointment.id}
-        time={appointment.time}
+        {...appointment}
+        interview={getInterview(state, appointment.interview)}
+        interviewers={getInterviewersForDay(state, state.day)}
+        bookInterview={bookInterview}
+        save={save}
+        back={() => 'back'}
       />
     );
   });
@@ -63,11 +86,7 @@ export default function Application(props) {
           alt="Interview Scheduler"
         />
         <hr className="sidebar__separator sidebar--centered" />
-        <DayList
-          days={state.days}
-          value={state.day}
-          onChange={setDay}
-        />
+        <DayList days={state.days} value={state.day} onChange={setDay} />
         <nav className="sidebar__menu"></nav>
         <img
           className="sidebar__lhl sidebar--centered"
