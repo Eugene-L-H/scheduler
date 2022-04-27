@@ -3,7 +3,6 @@ export function getAppointmentsForDay(state, day) {
   for (let stateDay of state.days) {
     if (stateDay.name === day) {
       let appointmentIds = stateDay.appointments;
-
       for (let id of appointmentIds) {
         appointmentObjs.push(state.appointments[id]);
       }
@@ -12,13 +11,13 @@ export function getAppointmentsForDay(state, day) {
   return appointmentObjs;
 }
 
-export function getInterviewersForDay(state, day) {
+export function getInterviewersForDay(state, selectedDay) {
   if (state.days.length === 0) {
     return [];
   }
 
   const matchingInterviews = state.days.filter(
-    (selectDay) => selectDay.name === day
+    (day) => day.name === selectedDay
   );
 
   return matchingInterviews.length === 0

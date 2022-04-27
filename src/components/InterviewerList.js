@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InterviewerListItem from './InterviewerListItem';
 import 'components/InterviewerList.scss';
 // import { action } from "@storybook/addon-actions";
@@ -23,3 +24,7 @@ export default function InterviewerList(props) {
     </section>
   );
 }
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired,
+};

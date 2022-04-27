@@ -31,17 +31,17 @@ const useApplicationData = () => {
     const interviewStateAfter = appointments[id].interview;
     let modifier = 0;
 
-    // Handle Update
+    // Update
     if (interviewStateBefore !== null && interviewStateAfter !== null) {
       modifier = 0;
     }
 
-    // Handle Delete
+    // Delete
     else if (interviewStateBefore !== null && interviewStateAfter === null) {
       modifier = 1;
     }
 
-    // Handle Create
+    // Create
     else if (interviewStateBefore === null && interviewStateAfter !== null) {
       modifier = -1;
     }
