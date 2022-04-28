@@ -36,8 +36,6 @@ Users can:
 ### Scheduler - Main Layout
 ![Submission Form](./docs/Scheduler-Main.png)
 
-### Scheduler - Editing Appointment
-![Hover Appointment](./docs/Schelduler-Edit-Appointment.png)
 
 ## GIFs
 ### Create Appointment
@@ -48,6 +46,9 @@ Users can:
 
 ### Delete Appointment
 ![Delete Appointment](./docs/Delete-Appointment.gif)
+
+### Cypress Testing
+![Cypress Testing](./docs/Cypress-Testing.gif)
 
 # Getting Started
 ## Setup
