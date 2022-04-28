@@ -34,7 +34,7 @@ Users can:
 ![Submission Form](./docs/Scheduler-Main.png)
 
 ### Scheduler - Editing Appointment
-![Hover Appointment](./docs/Scheduler-Edit-Appointment.png)
+![Hover Appointment](./docs/Schelduler-Edit-Appointment.png)
 
 ## GIFs
 ### Create Appointment
