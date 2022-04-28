@@ -80,8 +80,8 @@ export default function Appointment(props) {
             interviewers={props.interviewers}
             student={props.interview.student}
             interviewer={props.interview.interviewer.id}
-            back={back}
             save={save}
+            back={back}
           />
         )}
         {mode === ERROR_SAVE && (

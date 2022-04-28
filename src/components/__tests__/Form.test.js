@@ -33,7 +33,7 @@ describe('Form', () => {
     const onSave = jest.fn();
 
     const { getByText } = render(
-      <Form interviewers={interviewers} onSave={onSave} />
+      <Form interviewers={interviewers} save={onSave} />
     );
 
     fireEvent.click(getByText('Save'));
@@ -46,9 +46,9 @@ describe('Form', () => {
     const { getByText, getByPlaceholderText, queryByText } = render(
       <Form
         interviewers={interviewers}
-        student="Lydia Mill-Jones"
-        onSave={jest.fn()}
-        onCancel={onCancel}
+        student="Lydia Miller-Jones"
+        save={jest.fn()}
+        back={onCancel}
       />
     );
 
