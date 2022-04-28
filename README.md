@@ -20,7 +20,10 @@
 Interview Scheduler is a **Single-Page Application (SPA)** built using **React.js**.
 
 ## Purpose
-This application was created by as part of the **Lighthouse Labs' Web Development Bootcamp** curiculum. Its purpose was to practice creating React components, managing state based user interfaces, unit testing, integration testing, and end-to-end testing.
+This application is created as part of the **Lighthouse Labs' Web Development
+Bootcamp** curiculum. Its purpose is to practice creating React components,
+managing state based user interfaces, unit testing, integration testing and
+end-to-end testing.
 
 ## Features
 Users can:
@@ -50,7 +53,7 @@ Users can:
 ## Setup
 Install dependencies with `npm install`.
 
-Note: this project requires [Lighthouse Labs' Api](https://github.com/lighthouse-labs/scheduler-api) server made specifically for this project
+Note: this project requires [Lighthouse Labs' Api](https://github.com/lighthouse-labs/scheduler-api) server made specifically for this project.
 
 ### Running Webpack Development Server
 ```sh
